@@ -18,6 +18,16 @@ public class Event {
     @ManyToOne
     private Person person;
 
+    @ManyToOne
+    private Game game;
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
     public int getMinute() {
         return minute;

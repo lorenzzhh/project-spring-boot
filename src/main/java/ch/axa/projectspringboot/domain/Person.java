@@ -16,10 +16,20 @@ public class Person {
     @Column(nullable = false)
     private String name;
 
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     @JsonIgnore
     @OneToMany(mappedBy = "person")
     private Set<Event> events = new HashSet<>();
+
+    @ManyToOne
+    private Team team;
 
 
     public Set<Event> getEvents() {

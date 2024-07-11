@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/matchs")
+@RequestMapping("/api/games")
 public class APIGameController {
 
     @Autowired
     GameRepository gameRepository;
 
     @GetMapping
-    public Iterable<Game> getAllMatchs() {
+    public Iterable<Game> getAllGames() {
         return gameRepository.findAll();
     }
 

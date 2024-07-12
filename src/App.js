@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Players from "./components/Players";
+import Teams from "./components/Teams";
+import Games from "./components/Games";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div>
+          <nav>
+              <ul>
+                  <li><a href="/teams">Teams</a></li>
+                  <li><a href="/players">Players</a></li>
+                  <li><a href="/games">Games</a></li>
+              </ul>
+          </nav>
+
+          {/* Content based on URL */}
+          {window.location.pathname === '/teams' && <Teams />}
+          {window.location.pathname === '/players' && <Players />}
+          {window.location.pathname === '/games' && <Games />}
+      </div>
+
+
+
+
+
+
+
+
   );
 }
 

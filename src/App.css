@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+th {
+  background-color: #f4f4f4;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  margin: 0 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e7e7e7;
+}
+
+
+
+
+
+
+
+
+
+/* Allgemeine Stile */
+body {
+  background-color: #f2f2f2;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* Verhindert das Scrollen */
 }
 
-.App-link {
-  color: #61dafb;
+div {
+  position: relative; /* Positionierung für absolute Positionierung der Elemente */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  z-index: 2; /* über Hintergrund schwebende Elemente */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+nav {
+  position: relative; /* Positionierung für absolute Positionierung der Elemente */
+  z-index: 2; /* über Hintergrund schwebende Elemente */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: block;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background-color: #6c5ce7;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Hover-Effekt */
+nav ul li:hover a {
+  transform: rotate(360deg) scale(1.1); /* Drehung und Skalierung bei Hover */
+  background-color: #ff7675; /* Hintergrundfarbe ändern */
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.4); /* Schatten für Effekt */
+}
+
+/* Schweben-Animation */
+@keyframes floating {
+  0% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-70px);
   }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Anwendung der Schweben-Animation */
+nav ul li:nth-child(1) a {
+  animation: floating 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+nav ul li:nth-child(2) a {
+  animation: floating 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Zusätzliche schwebende Elemente außerhalb */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 118, 117, 0.6); /* Halbtransparente Farbe */
+  animation: floating 2s ease-in-out infinite;
+}
+
+body::before {
+  top: 10%;
+  left: 5%;
+}
+
+body::after {
+  bottom: 15%;
+  right: 10%;
 }

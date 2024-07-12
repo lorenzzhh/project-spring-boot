@@ -3,6 +3,7 @@ package ch.axa.projectspringboot.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +17,20 @@ public class Person {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private LocalDate birthDate;
+
+
     public Team getTeam() {
         return team;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public void setTeam(Team team) {

@@ -7,6 +7,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 
 @Component
@@ -45,6 +46,7 @@ public class Dataloader implements ApplicationRunner {
             Person person = new Person();
             person.setName("Ronaldo " + i);
             person.setTeam(team);
+            person.setBirthDate(LocalDate.now());
             personRepository.save(person);
 
             Stadium stadium = new Stadium();

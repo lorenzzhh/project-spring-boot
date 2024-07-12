@@ -14,6 +14,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/teams")
+@CrossOrigin("http://localhost:3000/")
 public class APITeamController {
 
     @Autowired
@@ -52,12 +53,11 @@ public class APITeamController {
         return ResponseEntity.ok(team);
     }
     
-    
 
-    @GetMapping("/{id}/players")
+  /*  @GetMapping("/{id}/players")
     public Set<Person> getTeamPlayers(@PathVariable String id) {
         return teamRepository.findById(id).get().getPeople();
     }
-
+*/
 
 }

@@ -1,6 +1,7 @@
 package ch.axa.projectspringboot.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -16,7 +17,7 @@ public class Team {
     @Column(nullable = false)
     private String name;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("team")
     @OneToMany(mappedBy = "team")
     private Set<Person> people = new HashSet<>();
 

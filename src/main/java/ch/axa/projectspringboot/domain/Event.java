@@ -1,6 +1,8 @@
 package ch.axa.projectspringboot.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Event {
@@ -10,9 +12,12 @@ public class Event {
     private String id;
 
     @Column(nullable = false)
+    @NotBlank(message = "Das Feld darf nicht leer sein.")
     private String description;
 
+
     @Column(nullable = false)
+    @NotNull(message = "Das Feld darf nicht leer sein.")
     private int minute;
 
     @ManyToOne

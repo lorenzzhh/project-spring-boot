@@ -1,7 +1,6 @@
 package ch.axa.projectspringboot.controllers;
 
 import ch.axa.projectspringboot.domain.Game;
-import ch.axa.projectspringboot.domain.Game;
 import ch.axa.projectspringboot.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,9 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/games")
+@CrossOrigin("http://localhost:3000/")
 public class APIGameController {
 
     @Autowired
@@ -49,7 +50,6 @@ public class APIGameController {
         gameRepository.save(game);
         return ResponseEntity.ok(game);
     }
-
 
 
 }

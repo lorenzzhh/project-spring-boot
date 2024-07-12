@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/people")
+@CrossOrigin("http://localhost:3000/")
 public class APIPersonController {
 
     @Autowired
